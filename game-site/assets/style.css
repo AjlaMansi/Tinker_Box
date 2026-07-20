@@ -1,0 +1,149 @@
+/* ---- Nook Arcade — token system ----
+   Color:
+     --board:      #2B2320  (dark walnut cork/desk)
+     --board-dot:  #3A2F2A  (dot texture on cork)
+     --cream:      #F1E7D6  (chalk / cream thread, text)
+     --yarn-red:   #C1443C  (primary accent)
+     --mustard:    #E3A857  (secondary accent)
+     --sage:       #7C9473  (tertiary accent)
+   Type:
+     display: 'Fredoka'   (rounded, handmade, playful)
+     body:    'Nunito'
+     utility: 'Space Mono' (tags / small labels, like a fabric care label)
+------------------------------------------------ */
+
+:root {
+  --board: #2B2320;
+  --board-dot: #3A2F2A;
+  --cream: #F1E7D6;
+  --yarn-red: #C1443C;
+  --mustard: #E3A857;
+  --sage: #7C9473;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: 'Nunito', sans-serif;
+  color: var(--cream);
+  background-color: var(--board);
+  background-image: radial-gradient(var(--board-dot) 1.4px, transparent 1.4px);
+  background-size: 22px 22px;
+  min-height: 100vh;
+}
+
+.board-header {
+  text-align: center;
+  padding: 56px 20px 28px;
+  position: relative;
+}
+
+.board-header h1 {
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 700;
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin: 0;
+  color: var(--mustard);
+  letter-spacing: 0.5px;
+}
+
+.underscore {
+  color: var(--yarn-red);
+  display: inline-block;
+  transform: translateY(4px);
+}
+
+.tagline {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.9rem;
+  color: var(--cream);
+  opacity: 0.75;
+  margin-top: 10px;
+}
+
+.corkboard {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 20px 24px 60px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 28px;
+}
+
+.patch {
+  position: relative;
+  display: block;
+  background: rgba(241, 231, 214, 0.05);
+  border: 2px dashed rgba(241, 231, 214, 0.35);
+  border-radius: 14px;
+  padding: 28px 22px 22px;
+  text-decoration: none;
+  color: var(--cream);
+  transform: rotate(-1deg);
+  transition: transform 0.18s ease, background 0.18s ease, border-color 0.18s ease;
+}
+
+.corkboard .patch:nth-child(2) { transform: rotate(1.2deg); }
+.corkboard .patch:nth-child(3) { transform: rotate(-0.6deg); }
+
+.patch:hover {
+  transform: rotate(0deg) translateY(-4px);
+  background: rgba(241, 231, 214, 0.1);
+  border-color: var(--yarn-red);
+}
+
+.patch-empty {
+  opacity: 0.45;
+  cursor: default;
+}
+.patch-empty:hover { transform: inherit; background: rgba(241,231,214,0.05); border-color: rgba(241,231,214,0.35); }
+
+.pin {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--yarn-red);
+  box-shadow: 0 2px 3px rgba(0,0,0,0.4);
+}
+.pin-faded { background: rgba(241, 231, 214, 0.3); }
+
+.patch-emoji {
+  font-size: 2.2rem;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.patch h2 {
+  font-family: 'Fredoka', sans-serif;
+  font-size: 1.3rem;
+  margin: 0 0 8px;
+  color: var(--cream);
+}
+
+.patch p {
+  font-size: 0.92rem;
+  line-height: 1.4;
+  margin: 0 0 14px;
+  color: rgba(241,231,214,0.85);
+}
+
+.patch-tag {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--sage);
+}
+
+.board-footer {
+  text-align: center;
+  padding: 20px;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.78rem;
+  color: rgba(241,231,214,0.5);
+}

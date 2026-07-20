@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Yarn Snake — Tinker_Box</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/style.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="game-body">
+
+  <a class="back-link" href="../../index.html">← back to the board</a>
+
+  <div class="game-wrap">
+    <h1 class="game-title">🧶 Yarn Snake</h1>
+    <p class="game-sub">Guide the yarn to the buttons. Don't let it tangle with itself.</p>
+
+    <div class="hud">
+      <span class="hud-chip">buttons: <b id="score">0</b></span>
+      <span class="hud-chip">best: <b id="best">0</b></span>
+    </div>
+
+    <div class="canvas-shell">
+      <canvas id="board" width="400" height="400"></canvas>
+
+      <div id="overlay" class="overlay">
+        <div class="overlay-card">
+          <p class="overlay-cat">🐱</p>
+          <h2 id="overlay-title">ready when you are</h2>
+          <p id="overlay-msg">use arrow keys / WASD, or the pad below on mobile</p>
+          <button id="overlay-btn" class="start-btn">start</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="dpad" aria-hidden="false">
+      <button class="dpad-btn dpad-up" data-dir="up">▲</button>
+      <div class="dpad-row">
+        <button class="dpad-btn dpad-left" data-dir="left">◀</button>
+        <button class="dpad-btn dpad-down" data-dir="down">▼</button>
+        <button class="dpad-btn dpad-right" data-dir="right">▶</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>
